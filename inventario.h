@@ -2,24 +2,18 @@
 #define INVENTARIO_H
 
 #define MAX_PRODUCTOS 100
-#define MAX_CADENA 50
+#define MAX_STR_LEN 100
+#define NUM_CAMPOS 4
 
-typedef struct {
-    char modelo[MAX_CADENA];
+#define MODELO 0
+#define MARCA 1
+#define ESPECIFICACIONES 2
+#define ESTADO 3
 
-    char marca[MAX_CADENA];
+void cleanStdinBuffer();
+void ingresarProducto(char productos[MAX_PRODUCTOS][NUM_CAMPOS][MAX_STR_LEN], int *numProductos);
+void editarProducto(char productos[MAX_PRODUCTOS][NUM_CAMPOS][MAX_STR_LEN], int numProductos);
+void eliminarProducto(char productos[MAX_PRODUCTOS][NUM_CAMPOS][MAX_STR_LEN], int *numProductos);
+void listarProductos(char productos[MAX_PRODUCTOS][NUM_CAMPOS][MAX_STR_LEN], int numProductos);
 
-    char especificaciones[MAX_CADENA];
-
-    char estado[MAX_CADENA];
-} Producto;
-
-void ingresarProducto(Producto productos[][4], int *numProductos);
-
-void editarProducto(Producto productos[][4], int numProductos);
-
-void eliminarProducto(Producto productos[][4], int *numProductos);
-
-void listarProductos(Producto productos[][4], int numProductos);
-
-#endif
+#endif // INVENTARIO_H
